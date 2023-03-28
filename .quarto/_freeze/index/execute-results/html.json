@@ -1,7 +1,7 @@
 {
-  "hash": "d036c9985cd4206e2e163b4ea72eb34c",
+  "hash": "0ce619df51e2cf110b5a3f1cb4e17a40",
   "result": {
-    "markdown": "---\ntitle: \"lsmacoris.github.io\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"lsmacoris.github.io\"\nimage: profile_TEST.jpg\nabout:\n  template: jolla\n  image-shape: round\n  image-width: 20em\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

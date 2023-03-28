@@ -3,7 +3,7 @@
     "path": "~/GitHub/lsmacoris.github.io/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1021552711",
     "contents": "",
     "dirty": false,
     "created": 1679941696883.0,
@@ -11,14 +11,16 @@
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "7,8",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1679941689,
+    "lastKnownWriteTime": 1679947823,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1679941689,
+    "last_content_update": 1679947823906,
     "read_only": false,
     "read_only_alternatives": []
 }
