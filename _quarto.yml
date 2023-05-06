@@ -2,18 +2,40 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "lsmacoris.github.io"
+  reader-mode: true
+  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-actions: [edit, issue]
+  title: "Lucas Macoris"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: practice.qmd
+        text: Practitioner Stuff
+      - href: academic.qmd
+        text: Academic Research
+    right:
+      - icon: github
+        href: https://github.com/lsmacoris
+        aria-label: GitHub
+      - icon: envelope
+        href: mailto:lucasmacoris@gmail.com
+        aria-label: Email
+      - icon: linkedin
+        href: https://www.linkedin.com/in/lucas-macoris-390a47160/
+        aria-label: LinkedIn
+      - icon: cup
+        href: https://github.com/lsmacoris
+        aria-label: Ask-me-Anything
+    
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    theme:
+      light: [flatly,light.scss]
+      dark: [darkly,dark.scss]
 
 
 

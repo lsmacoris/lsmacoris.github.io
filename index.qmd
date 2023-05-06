@@ -6,19 +6,24 @@ about:
   image-shape: round
   image-width: 20em
   links:
-  -text: Email
-  icon: envelope
-  href: mailto:lucasmacoris@gmail.com
-  -text: GitHub
-  icon: github
-  href: https://github.com/lsmacoris
-  -text: CV
-  icon: file-text
-  href: CV LucasMacoris.pdf
+    - icon: github
+      text: GitHub
+      href: https://github.com/lsmacoris
+    - icon: envelope
+      text: Email
+      href: mailto:lucasmacoris@gmail.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/lucas-macoris-390a47160/
+    - icon: cup
+      text: Ask-me-Anything
+      href: https://www.google.com.br
  
 ---
 
 This is a Quarto website.
+
+
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
