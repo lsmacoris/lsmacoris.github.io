@@ -16,6 +16,8 @@ website:
         text: Practitioner Stuff
       - href: academic.qmd
         text: Academic Research
+      - href: posts.qmd
+        text: Blog
     right:
       - icon: github
         href: https://github.com/lsmacoris
