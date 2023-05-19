@@ -5,17 +5,16 @@ about:
   template: jolla
   image-shape: round
   image-width: 20em
-  links:
-  -text: Email
-  icon: envelope
-  href: mailto:lucasmacoris@gmail.com
-  -text: GitHub
-  icon: github
-  href: https://github.com/lsmacoris
-  -text: CV
-  icon: file-text
-  href: CV LucasMacoris.pdf
- 
+links:
+-text: Email
+icon: envelope
+href: mailto:lucasmacoris@gmail.com
+-text: GitHub
+icon: github
+href: https://github.com/lsmacoris
+-text: CV
+icon: file-text
+href: CV LucasMacoris.pdf
 ---
 
 This is a Quarto website.

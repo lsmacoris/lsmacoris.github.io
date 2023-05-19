@@ -1,0 +1,16 @@
+---
+title: "Test Post"
+author: "Harlow Malloc"
+date: "2023-05-19"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+```{r}
+
+
+
+a=1+2
+
+print(a)
+```
