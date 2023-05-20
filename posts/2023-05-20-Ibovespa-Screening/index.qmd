@@ -1,0 +1,69 @@
+---
+title: "Automating a panel creation of Yahoo! Finance tickers using R"
+description: "A set of ETL routines to collect, treat, and analyze stock price information for a bundle of tickers simultaneously."
+author:
+  - name: Lucas S. Macoris
+    url: https://lsmacoris.github.io/
+    orcid: 0000-0003-0732-5011
+    affiliation: Ph.D in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
+    affiliation-url: https://www.circana.com/
+date: 5-20-2023
+categories: [Quarto, R] # self-defined categories
+citation: 
+  url: https://lsmacoris.github.io/posts/2023-05-20-Ibovespa-Screening
+image: post_thumbnail.jpeg
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+This notebook uses *Yahoo! Finance* to collect data and generate trading signals. The aim of this notebook is to provide an automated screening system in which, based on the technical indicators defined by the researcher, one can easily run a screening daily screening process in order to select a bundle of assets for a given trading strategy. This notebook implements this by using *Yahoo! Finance!* data on a daily basis.
+
+For that, we are going to present a simple example using a set of brazilian traded stocks in *Bovespa*. All the stocks are presented in the auxiliary *.csv* file, `Assets.csv`, and can be changed to accomodate any stock available in *Yahoo! Finance* servers.
+
+**Important Remark**: *Yahoo! Finance* generally offers data with splits and dividends adjustments and therefore may not be the same as the brokerage information. In this sense, recommendations must also be analyzed through technical indicators presented on the brokerage account. Additionally, one can change the log in order to use any other provider of financial data of the same format, such as [*AlphaVantage*](https://www.alphavantage.co/), which also has an API support into the `quantmod` library.
+
+## Loading Necessary Libraries
+
+Although this is totally up to you, I fully recommend using the [`pacman`](https://cran.r-project.org/web/packages/pacman/pacman.pdf) package (`install.packages('pacman')`) for package management. More specifically, we'll provide a vector of strings with all libraries, and `p_load()` takes care of the rest: if you have a given package already installed, `p_load()` will load it into your R session; otherwise, the package will be first installed, and then loaded.
+
+---
+title: "Automating a panel creation of Yahoo! Finance tickers using R"
+description: "A set of ETL routines to collect, treat, and analyze stock price information for a bundle of tickers simultaneously."
+author:
+  - name: Lucas S. Macoris
+    url: https://lsmacoris.github.io/
+    orcid: 0000-0003-0732-5011
+    affiliation: Ph.D in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
+    affiliation-url: https://www.circana.com/
+date: 5-20-2023
+categories: [Quarto, R] # self-defined categories
+citation: 
+  url: https://lsmacoris.github.io/posts/2023-05-20-Ibovespa-Screening
+image: post_thumbnail.jpeg
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+This notebook  uses *Yahoo! Finance* to collect data and generate trading signals. The aim of this notebook is to provide an automated screening system in which, based on the technical indicators defined by the researcher, one can easily run a screening daily screening process in order to select a bundle of assets for a given trading strategy. This notebook implements this by using *Yahoo! Finance!* data on a daily basis.
+
+For that, we are going to present a simple example using a set of brazilian traded stocks in *Bovespa*. All the stocks are presented in the auxiliary *.csv* file, `Assets.csv`, and can be changed to accomodate any stock available in *Yahoo! Finance* servers.
+
+**Important Remark**: *Yahoo! Finance* generally offers data with splits and dividends adjustments and therefore may not be the same as the brokerage information. In this sense, recommendations must also be analyzed through technical indicators presented on the brokerage account. Additionally, one can change the log in order to use any other provider of financial data of the same format, such as [*AlphaVantage*](https://www.alphavantage.co/), which also has an API support into the `quantmod` library.
+
+
+## Loading Necessary Libraries
+
+Although this is totally up to you, I've selected a few packages that make the overall task easier.
+
+```{r,warning=FALSE,error=FALSE,message=FALSE,echo=FALSE}
+
+
+packages.to.install=c("ggplot2","dplyr","tidyr","PerformanceAnalytics","quantmod","xts","ggpubr","zoo","alphavantager","quantmod","flextable")
+
+sapply(packages.to.install,library,character.only=TRUE,quietly=TRUE)
+
+#Read a list of assets
+Assets<-read.csv('Assets.csv',sep=';',encoding = 'UTF-8',header = TRUE,stringsAsFactors = FALSE)[,1]
+
+#Let's take a look at the structure of the file
+Assets%>%head(10)
+```
+
