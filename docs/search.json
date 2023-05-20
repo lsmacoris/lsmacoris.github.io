@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Lucas S. Macoris",
     "section": "",
-    "text": "Welcome to my personal website!\nI am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at Circana. I’ve obtained my Ph.D. in Economics from INSPER (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts as well as ideas and a with few lines of code, I aim to bridge the gap between what. Hopefully, I can make someone passionate about these things, too!\n\nmessage('Ayo!')\n\nAyo!"
+    "text": "Welcome to my personal website!\nI am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at Circana. I’ve obtained my Ph.D. in Economics from INSPER (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts as well as ideas and a with few lines of code, I aim to bridge the gap between what. Hopefully, I can make someone passionate about these things, too!\n\nsuppressWarnings(message(readLines('hard-truth.txt')))\n\n\"If the statistics are boring, you've got the wrong numbers.\" -- Edward Tufte"
   },
   {
     "objectID": "about.html",

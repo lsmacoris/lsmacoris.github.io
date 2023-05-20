@@ -25,5 +25,7 @@ Welcome to my personal website!
 I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I've obtained my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts as well as ideas and a with few lines of code, I aim to bridge the gap between what. Hopefully, I can make someone passionate about these things, too!
 
 ```{r}
-message('Ayo!')
+
+suppressWarnings(message(readLines('hard-truth.txt')))
+
 ```
