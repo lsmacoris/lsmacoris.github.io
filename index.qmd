@@ -1,5 +1,5 @@
 ---
-title: "lsmacoris.github.io"
+title: "Lucas S. Macoris"
 image: profile_TEST.jpg
 about:
   template: jolla
@@ -16,17 +16,14 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/lucas-macoris-390a47160/
     - icon: cup
-      text: Ask-me-Anything
+      text: Buy me a Coffee
       href: https://www.google.com.br
- 
 ---
 
-This is a Quarto website.
+Welcome to my personal website!
 
-
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I've obtained my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts as well as ideas and a with few lines of code, I aim to bridge the gap between what. Hopefully, I can make someone passionate about these things, too!
 
 ```{r}
-1 + 1
+message('Ayo!')
 ```

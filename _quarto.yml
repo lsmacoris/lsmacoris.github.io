@@ -3,7 +3,7 @@ project:
   output-dir: docs
 website:
   reader-mode: true
-  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-url: https://github.com/lsmacoris
   repo-actions: [edit, issue]
   title: "Lucas Macoris"
   navbar:
@@ -31,7 +31,10 @@ website:
       - icon: cup
         href: https://github.com/lsmacoris
         aria-label: Ask-me-Anything
-    
+  page-footer: 
+   background: light
+   left: Copyright 2023, Lucas Macoris
+   right: This website is built with {{< fa heart title="a heart" >}} and [Quarto](https://quarto.org/)
 
 format:
   html:
