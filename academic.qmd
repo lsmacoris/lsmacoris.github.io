@@ -12,15 +12,28 @@ Link to my Google Scholar: [here](https://scholar.google.com/citations?user=8FyX
 
 Below you can find some of my published/work-in-progress academic work:
 
+
+------------------------------------------------------------------------
+
+### **M\&A under financing frictions: evidence from credit supply shortfalls**
+
+*Joint work with Luis Ricardo Kabbach de Castro (University of Florida), Dirk Boehe (Un. of Massey) and Aquiles Kalatzis (University of Sao Paulo)*
+
+* *Status*: *Working Paper*. Draft verison can be obtained [here](https://drive.google.com/file/d/1ygV2IDf6Osjm8oDvdmeKlWGkxpEVCXXo/view?usp=share_link).
+
+* *Presentations*: 2022 European Financial Management Association (EFMA), 2022 Academy of Management (AOM), Insper, Getulio Vargas Foundation (EAESP), University of Navarra, Brazilian Finance Meeting.
+
+*Abstract*: despite empirical evidence showing that firms' investments decrease during periods of credit supply shortfalls, little is known about how firms can eventually circumvent the adverse effects of negative credit supply shocks. In this paper, we show that firms can relieve financing frictions during banking crisis periods by selling equity stakes to outside investors, and the specific channel that relieves such frictions is a shift from domestic to cross-border issuance in countries with historically higher issuance volume. To do so, we examine Mergers and Acquisitions (M\&A) transactions worldwide between 1990-2019 and the outcomes of targeted firms \textit{ex-post} the deal by exploring cross-sectional variation in the supply of credit induced by banking crises. The results show that firms that have higher levels of expiring debt maturities in the year of the credit shock are more likely to become targets in M\&A deals. Moreover, we find strong evidence that target firms invest more and issue more debt after the deal relative to their counterparts. Finally, we show that these firms are shifting from issuing debt in their own countries to issuing debt in countries with historically higher issuance volume. All in all, these results show that M\&As can work as leeway to relieve financing frictions in periods when credit supply frictions are more prevalent.
+
 ------------------------------------------------------------------------
 
 ### **Minority Acquisitons and Financial Constraints: reaping big benefits from small shareholders**
 
 *Joint work with Luis Ricardo Kabbach de Castro (University of Florida), Dirk Boehe (Un. of Massey) and Aquiles Kalatzis (University of Sao Paulo)*
 
-Published at the *Corporate Governance: an International Review*
+* *Status*: Published at the *Corporate Governance: an International Review* - Click [here](https://onlinelibrary.wiley.com/doi/full/10.1111/corg.12466) to access
 
-Presentations: presented at the XVIII Brazilian Finance (2018) Meeting, accepted at AIB Conference (2018).
+* *Presentations*: presented at the XVIII Brazilian Finance (2018) Meeting, accepted at AIB Conference (2018).
 
 *Abstract*: using a panel of approximately 12,000 domestic and cross-border deals, our results show a positive and statistically significant relationship between the target firms' financial constraints and the occurrence of minority acquisitions. Moreover, compared to a matched sample, there is a statistically significant difference between the growth in investment and leverage of target firms after deal completion, indicating the effectiveness of minority acquisitions in alleviating target's financial constraints. At the institutional level, we find that the level of financial development and legal protection in a country are also positively related to minority acquisitions.
 
@@ -30,4 +43,14 @@ Presentations: presented at the XVIII Brazilian Finance (2018) Meeting, accepted
 
 *Joint work with Andre Mancha (Insper) and Naercio Aquino Menezes-Filho (Insper)*
 
-Abstract: we assess how social distancing norms following the COVID-19 outbreak affected pollutant levels in Sao Paulo, one of the largest metropolitan areas in the world. We estimate a difference-in-differences model, exploiting exogenous variation in lockdown rules across municipalities to evaluate different mechanisms that have driven air quality improvement in the city. Using hourly air pollution levels measured in thirty-three monitoring stations in the state of Sao Paulo, we find an average decrease of 24.4% in air pollution after the first days of the capital's quarantine announcement, with heterogeneous effects across types of pollutants. We also compare this effect with exogenous cancellations of traffic restriction rules that occurred between 2000-2018. Our results shed light on the discussion of public policies focused on air quality improvement in large metropolitan areas, which can be a helpful guidance for policymakers in the post-pandemic period.
+* *Status*: *Revise and Resubmit* (R\&R). Draft version can be obtained [here](https://drive.google.com/file/d/1CzMH34--fD5PcYu8mwWdfU1A641M4-Hy/view?usp=share_link).
+
+*Abstract*: we assess how social distancing norms following the COVID-19 outbreak affected pollutant levels in Sao Paulo, one of the largest metropolitan areas in the world. We estimate a difference-in-differences model, exploiting exogenous variation in lockdown rules across municipalities to evaluate different mechanisms that have driven air quality improvement in the city. Using hourly air pollution levels measured in thirty-three monitoring stations in the state of Sao Paulo, we find an average decrease of 24.4% in air pollution after the first days of the capital's quarantine announcement, with heterogeneous effects across types of pollutants. We also compare this effect with exogenous cancellations of traffic restriction rules that occurred between 2000-2018. Our results shed light on the discussion of public policies focused on air quality improvement in large metropolitan areas, which can be a helpful guidance for policymakers in the post-pandemic period.
+
+
+------------------------------------------------------------------------
+
+### **Other Work-in-Progress**
+
+1. On the Study of Debt Structure Determinants -- draft can be obtained upon request.
+2. The Real Effects of Capital Requirements on the Brazilian Healthcare Industy -- draft can be obtained upon request.
