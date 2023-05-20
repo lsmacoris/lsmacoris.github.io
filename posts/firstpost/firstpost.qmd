@@ -1,27 +1,30 @@
 ---
-title: "blog post title"
-description: "blog post description (appears underneath the title in smaller text) which is included on the listing page"
+title: "A Test Post"
+description: "Description"
 author:
-  - name: Samantha Csik
-    url: https://samanthacsik.github.io/
-    orcid: 0000-0002-5300-3075
-    affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB) & The National Center for Ecological Analysis & Synthesis
-    affiliation-url: https://ucsb-meds.github.io/ 
-date: 10-24-2022
-categories: [Quarto, R, MEDS] # self-defined categories
+  - name: Lucas S. Macoris
+    url: https://lsmacoris.github.io/
+    orcid: 0000-0003-0732-5011
+    affiliation: Ph.D in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
+    affiliation-url: https://www.circana.com/
+date: 5-15-2023
+categories: [Quarto, R] # self-defined categories
 citation: 
-  url: https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/ 
+  url: https://lsmacoris.github.io/posts/2022-10-24-quarto-blogs/ 
 image: preview_image.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
+
+Here's a quick example of how to display flextable:
+
 ```{r}
 
-message('Hello!')
+library(flextable)
+library(dplyr)
 
-a=1+2
+mtcars%>%flextable()
 
-print(a)
 ```
 
 

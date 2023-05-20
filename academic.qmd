@@ -1,9 +1,33 @@
 ---
   title: "Academic Research"
 ---
-  
-  About this site
 
-```{r}
-1 + 1
-```
+## More about Me
+
+I am a Business Economics Ph.D. Candidate at Insper - Institute of Education and Research, Sao Paulo. You can check my full CV [here](www.google.com.br).
+
+My research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms' financing and investment decisions, and what are the implications of these imperfections in terms of managerial action, firms' future outcomes, and market responses.
+
+Link to my Google Scholar: [here](https://scholar.google.com/citations?user=8FyXT4AAAAAJ&hl=en&oi=ao)
+
+Below you can find some of my published/work-in-progress academic work:
+
+------------------------------------------------------------------------
+
+### **Minority Acquisitons and Financial Constraints: reaping big benefits from small shareholders**
+
+*Joint work with Luis Ricardo Kabbach de Castro (University of Florida), Dirk Boehe (Un. of Massey) and Aquiles Kalatzis (University of Sao Paulo)*
+
+Published at the *Corporate Governance: an International Review*
+
+Presentations: presented at the XVIII Brazilian Finance (2018) Meeting, accepted at AIB Conference (2018).
+
+*Abstract*: using a panel of approximately 12,000 domestic and cross-border deals, our results show a positive and statistically significant relationship between the target firms' financial constraints and the occurrence of minority acquisitions. Moreover, compared to a matched sample, there is a statistically significant difference between the growth in investment and leverage of target firms after deal completion, indicating the effectiveness of minority acquisitions in alleviating target's financial constraints. At the institutional level, we find that the level of financial development and legal protection in a country are also positively related to minority acquisitions.
+
+------------------------------------------------------------------------
+
+### **How has COVID-19 affected air quality in Sao Paulo?**
+
+*Joint work with Andre Mancha (Insper) and Naercio Aquino Menezes-Filho (Insper)*
+
+Abstract: we assess how social distancing norms following the COVID-19 outbreak affected pollutant levels in Sao Paulo, one of the largest metropolitan areas in the world. We estimate a difference-in-differences model, exploiting exogenous variation in lockdown rules across municipalities to evaluate different mechanisms that have driven air quality improvement in the city. Using hourly air pollution levels measured in thirty-three monitoring stations in the state of Sao Paulo, we find an average decrease of 24.4% in air pollution after the first days of the capital's quarantine announcement, with heterogeneous effects across types of pollutants. We also compare this effect with exogenous cancellations of traffic restriction rules that occurred between 2000-2018. Our results shed light on the discussion of public policies focused on air quality improvement in large metropolitan areas, which can be a helpful guidance for policymakers in the post-pandemic period.
