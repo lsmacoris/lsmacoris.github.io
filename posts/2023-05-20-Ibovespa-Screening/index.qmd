@@ -5,7 +5,7 @@ author:
   - name: Lucas S. Macoris
     url: https://lsmacoris.github.io/
     orcid: 0000-0003-0732-5011
-    affiliation: Ph.D in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
+    affiliation: Ph.D Candidate in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
     affiliation-url: https://www.circana.com/
 date: 5-20-2023
 categories: [Quarto, R] # self-defined categories
