@@ -1,9 +1,27 @@
 ---
-title: "About"
+  title: "**About me**"
 ---
 
-About this site
+## Background
 
-```{r}
-1 + 1
+I have received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil). More recently, in 2023, I received my Ph.D. Degree in Economics from INSPER (Institute of Education and Research, Sao Paulo, Brazil).
+
+My academic background is in Corporate Finance/Applied Economics. More specifically, my academic research lies at the intersection between Corporate Finance and Financial Intermediation. I study how market frictions affect firms' financing and investment decisions, and what are the implications of these imperfections in terms of managerial action, firms' future outcomes, and market responses.
+
+During this journey, data in its various formats has (and will always be) been part of my day-to-day activities. I started coding when I first discovered [DataCamp](www.datacamp.com) and enrolled in my first `R` programming course. At first, I was terrified by the amount of complexity that it brought, and how challenging it was to move from user-interface schemes (like *excel*) to programming languages. From time to time, being able to grasp on common questions (literally any) that were already answered by a very supportive community (and, of course, learning from it) made this substantial shift much more enjoyable.
+
+Acquiring such skills provided me flexibility and allowed me to explore creativity to better express ideas and look for answering interesting research/business questions without the hasle of putting hours of work in repetitive tasks. I used `R`, `Python`, `SQL`, `LaTex`, and all of its related interfaces in literally *everything* related to my research agenda, as well as during several oriented courses on applied economics and finance, both at the undergraduate and graduate levels, where I worked as a Teaching Assistant during my Ph.D enrollment.
+
+All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains you why.
+
+## Actual role
+
+```{r,results='hide',echo=FALSE}
+message("50% of my marketing budget is wasted. Which half?")
 ```
+
+In late 2021, I made a shift from academia and joined [Circana](www.circana.com) (former IRI + NPD), the world's largest data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
+
+More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating huge amounts (>>100gb!) of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on adverstisement spend. My work helps CPG clients to move millions of dollars every year across towards marketing efforts that have shown to be the top performers, and also understand *why* they performed as such.
+
+I use a ton of Data Science and Applied Economics concepts to get my way around this process from and end-to-end perspective. I employ automated ETL (*Extract, Treat, and Load*) routines to ingest unstructured data, apply econometric models in large scale, and use awesome open-source technologies to analyze and automate output reporting in convenient formats.

@@ -15,14 +15,11 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/lucas-macoris-390a47160/
-    - icon: cup
-      text: Buy me a Coffee
-      href: https://www.google.com.br
 ---
 
 Welcome to my personal website!
 
-I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I've obtained my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts as well as ideas and a with few lines of code, I aim to bridge the gap between what. Hopefully, I can make someone passionate about these things, too!
+I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I've obtained my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May, 2023. By sharing random thoughts and ideas with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn about it. Hopefully, I can make someone passionate about these things, too.
 
 ```{r}
 
