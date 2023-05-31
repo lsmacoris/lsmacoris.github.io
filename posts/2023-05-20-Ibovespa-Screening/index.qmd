@@ -5,7 +5,7 @@ author:
   - name: Lucas S. Macoris
     url: https://lsmacoris.github.io/
     orcid: 0000-0003-0732-5011
-    affiliation: Ph.D Candidate in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
+    affiliation: Ph.D. in Economics @ INSPER (Sao Paulo, Brazil) & Media Mix Modelling/Data Science @ Circana
     affiliation-url: https://www.circana.com/
 date: 5-20-2023
 categories: [Quarto, R] # self-defined categories
@@ -15,9 +15,13 @@ image: post_thumbnail.jpeg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
-This notebook uses *Yahoo! Finance* to collect data and generate trading signals. The aim of this notebook is to provide an automated screening system in which, based on the technical indicators defined by the researcher, one can easily run a screening daily screening process in order to select a bundle of assets for a given trading strategy. This notebook implements this by using *Yahoo! Finance!* data on a daily basis.
+Whenever downloading data from *Yahoo! Finance* using `quantmod`, I've always found it difficult to organize a collection of objects in cases where the number of tickers requested is large. Notwithstanding, not only for the sake of organization, sometimes we want to perform calculations that span a large set of assets and visualize results in an aggregate fashion. For example, say that one wants estimate how persistent prices for several stocks are using past information. The naivest way to do it would be to loop over several tickers, collect the persistace metric, and append to a `data.frame()` that will be used to analyze metrics (*i.e*, using histograms and summary statistics).
 
-For that, we are going to present a simple example using a set of brazilian traded stocks in *Bovespa*. All the stocks are presented in the auxiliary *.csv* file, `Assets.csv`, and can be changed to accomodate any stock available in *Yahoo! Finance* servers.
+I happened to find `purrr` (see [documentation](https://purrr.tidyverse.org)) to be a handy companion for tasks like this. When using its functional programming features, we can not only have a much easier way to work with multiple tickers, but also work with a much cleaner environment (who wants to have 100+ `xts` objects in our environment everytime when running the code?).
+
+To that matter, this notebook showcases how to collect and organize data from *Yahoo! Finance* and perform calculations that span across all tickers. This can be very useful, for example, when creating an automated screening system in which, based on the technical indicators defined by the researcher,  can easily run a screening daily screening process in order to select a bundle of assets for a given trading strategy. This notebook implements this by using *Yahoo! Finance!* data on a daily basis.
+
+I am  going to present a simple example using a set of brazilian traded stocks in *Bovespa*. All the stocks are presented in the auxiliary *.csv* file, `Assets.csv`, and can be changed to accomodate any stock available in *Yahoo! Finance* servers. This file contains approximataely 75 unique tickers from the Brazilian Stock Market that were tradable back in 2019. What makes it difficult to use `quantmod`'s capabilities is the fact that some tickers are not available and/or do not have data for the requested period. Whenever running a `for` loop and iterate through these tickers, one might come across a `warning` or an `error` message that might crash the task. I have provided some wrappers using the `tryCatch()` approach.
 
 **Important Remark**: *Yahoo! Finance* generally offers data with splits and dividends adjustments and therefore may not be the same as the brokerage information. In this sense, recommendations must also be analyzed through technical indicators presented on the brokerage account. Additionally, one can change the log in order to use any other provider of financial data of the same format, such as [*AlphaVantage*](https://www.alphavantage.co/), which also has an API support into the `quantmod` library.
 
@@ -27,18 +31,27 @@ Although this is totally up to you, I've selected a few packages that make the o
 
 ```{r,warning=FALSE,error=FALSE,message=FALSE,results='hide'}
 
-packages.to.install=c("ggplot2","dplyr","tidyr","PerformanceAnalytics","quantmod","xts","ggpubr","zoo","quantmod","flextable")
+packages.to.load=c("ggplot2","dplyr","PerformanceAnalytics","quantmod","xts","purrr","glue")
 
-sapply(packages.to.install,library,character.only = TRUE)
+#Load all packages
+sapply(packages.to.load,library,character.only = TRUE)
 
-#Read a list of assets
+#Load the list of Assets
 Assets<-read.csv('Assets.csv',sep=';',encoding = 'UTF-8',header = TRUE,stringsAsFactors = FALSE)[,1]
 ```
 
-```{r}
 
+## Getting the data and putting into a clean list structure
+
+After loading the data, we can iterate through our list of tickers to organize the information. One important callout whenever we want to retrieve some technical indications (for example, from the `PerformanceAnalytics` package), we need to ensure that there are no `NA`s in our data. For that, we'll wrap our call using the `na.locf()` call to repeat the latest information available.
+
+```{r}
 #Let's take a look at the structure of the file
 Assets%>%head(5)
+
+#create empty data.frames to collect downloaded and error cases
+downloaded=data.frame()
+errors=data.frame()
 
 #Getting Data: now, we are going to request for chunks of 5 assets per time in Yahoo Finance server.
 
@@ -50,39 +63,60 @@ adjust_ticker_data <- function(ticker){
 
 Tickers=list()
 
-for (i in Assets[1:5]){
+for (i in Assets){
+
+  Data=suppressWarnings(
+      tryCatch({
+      
+      adjust_ticker_data(getSymbols(i,
+                                    auto.assign = FALSE,
+                                    from='2019-01-01',to=Sys.Date())
+                         )},
+      error = function(e){
+      assign("errors",rbind(errors,i),envir=.GlobalEnv)
+      }
+    )
+  )
   
-Data=adjust_ticker_data(getSymbols(i,auto.assign = FALSE,from='2019-01-01',to=Sys.Date()))
-
-Bands = do.call(merge,lapply(Data,BBands))
-RSI = do.call(merge,lapply(Data,RSI))
-SMA= do.call(merge,lapply(Data,SMA))
-
-Tickers[[i]]=list(Data=Data,
-                  BBands=Bands,
-                  RSI=RSI,
-                  SMA=SMA)
+#If successful, we'll be able to have a xts object to get information on prices:
+  
+  if(is.xts(Data)){
+  downloaded=downloaded%>%rbind(i)
+  Bands = do.call(merge,lapply(Data,BBands))
+  RSI = do.call(merge,lapply(Data,RSI))
+  SMA= do.call(merge,lapply(Data,SMA))
+  
+  Tickers[[i]]=list(Data=Data,
+                    BBands=Bands,
+                    RSI=RSI,
+                    SMA=SMA)
+  
+  #Clear from memory to avoid if conditions to be satisfied with past iterations
+  rm(Data)
+  }
 
 }
 
+  #Retrieve status information:
+  message(glue('Data not downloaded for the following tickers: {errors}.'))
+  message(glue('Successfully downloaded data for the following tickers: {downloaded}.'))
 
-#Accessing all RSI
-
-A=do.call(merge,lapply(Tickers,'[[',"SMA"))
-names(A)=Assets[1:5]
-
-## Create color scheme using rainbow()
-tsRainbow = rainbow(ncol(as.zoo(A)))
-
-A%>%plot.xts(COL=tsRainbow)
-addLegend("topright", 
-              legend.names=Assets[1:5],
-              col=tsRainbow,
-              lty=c(1,1,1,1,1),
-              lwd=c(2,2,2,2,2),
-              ncol=2,
-              bg="white")
 ```
+
+What is very interesting when collecting information using lists is that we can easily organize data in a streamlined fashion that is very flexible when working with different data structure dimensions. For example, when inspecting the newly created `Tickers` list, it contains:
+
+1. A first layers of 64 named tickers, one for each ticker that has been successfully downloaded;
+2. One additional layer for the adjusted closing data;
+3. Additional layers for each technical indicator
+
+Due to the way that it was structured, these objects do not need to hold a specific rows $\times$ columns dimension, as every object is stores in a single nested list, which makes our life much easies when dealing with multiple tickers.
+
+
+## Using list information with functional programming
+
+Using `purrr` capabilities for functional programming really made my life much easier. More specifically, `map` and its companions allow us to map functions across different lists, collect objects, and use for other analysis. Say, for example, that we want to understand what is the distribution of price persistence across *all* tickers. We can run an $ARIMA(p,d,q)$ model for each ticker, collec the coefficients, and then plot an histogram to understand the distribution of the autoregressive component, $p$.
+
+In order to do that, we will create a new list that will extract all `Data` components of the nested ticker lists. With that, we will use a combination of the `map_*` family functions from `purrr` to feed the results directly into a `ggplot` chart -- everything without creating a single new object!
 
 ```{r}
 
@@ -90,9 +124,22 @@ addLegend("topright",
 #As we are going to use a data frame, we must keep assets with the same number of observartions. However,
 # one can modify this code and simply treat each asset as a component of a list.
 
-Filter=Assets[which(Assets %in% ls())]
-
-
-
+suppressWarnings(lapply(Tickers,'[[',"Data")%>%
+  map(arima,order=c(1,1,1)))%>%
+  map("coef")%>%
+  map_df('ar1')%>%t()%>%as.data.frame()%>%
+  ggplot(aes(x=V1))+
+  geom_histogram(binwidth = 0.1)+
+  theme_minimal()+
+  labs(x='Autoregressive Parameter',
+       y='Count',
+       title='Distribution of autoregressive parameters across Brazilian stocks',
+       subtitle='Assuming an ARIMA(1,1,1) model for the stocks')+
+  scale_y_continuous(breaks=seq(1,10,1))+
+  scale_x_continuous(breaks=seq(-1,1,0.15))+
+  geom_density(aes(y=0.075*..count..),size=1,col='red',linetype='dashed')
 
 ```
+
+I hope you enjoy this post!
+

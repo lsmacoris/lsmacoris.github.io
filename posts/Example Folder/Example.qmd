@@ -12,7 +12,7 @@ categories: [Quarto, R] # self-defined categories
 citation: 
   url: https://lsmacoris.github.io/posts/2022-10-24-quarto-blogs/ 
 image: preview_image.jpg
-draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+draft: true # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
 
