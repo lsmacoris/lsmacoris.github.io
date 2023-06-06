@@ -28,6 +28,10 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/lucas-macoris-390a47160/
         aria-label: LinkedIn
+      - icon: file-pdf
+        href: https://drive.google.com/file/d/184m-BDeB-31SSyEuzqINco2UzqRFXhma/view?usp=drive_link
+        aria-label: CV
+      
   page-footer: 
    background: dark
    left: Copyright 2023, Lucas Macoris

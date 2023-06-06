@@ -15,6 +15,10 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/lucas-macoris-390a47160/
+    - icon: file-pdf
+      text: CV
+      href: https://drive.google.com/file/d/184m-BDeB-31SSyEuzqINco2UzqRFXhma/view?usp=drive_link
+
 ---
 
 Welcome to my personal website!
