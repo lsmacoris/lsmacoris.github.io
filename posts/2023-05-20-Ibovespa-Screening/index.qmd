@@ -119,9 +119,7 @@ In order to do that, we will create a new list that will extract all `Data` comp
 
 ```{r}
 
-#Closing Prices and Return Data: use this wrapper to verify whether there is some Asset with less observations.
-#As we are going to use a data frame, we must keep assets with the same number of observartions. However,
-# one can modify this code and simply treat each asset as a component of a list.
+#Using map_* + ggplot to analyze the distribution of the autoregressive parameter 
 
 suppressWarnings(lapply(Tickers,'[[',"Data")%>%
   map(arima,order=c(1,1,1)))%>%

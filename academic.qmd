@@ -44,6 +44,19 @@ Below you can find some of my published/work-in-progress academic work:
 
 ------------------------------------------------------------------------
 
+### **Cross-border and domestic minority acquisitions and financial constraints: Reaping big benefits from small shareholders?**
+
+*Joint work with Luiz Ricardo Kabbach de Castro (UNAV-ES), Aquiles Kalatzis (USP), and Dirk. Boehe (Africa Business School)*
+
+* *Status*: *Published* at the *Corporate Governance: an International Review* (2022). Click [here](https://onlinelibrary.wiley.com/doi/full/10.1111/corg.12466) to access.
+
+*Abstract*: using a sample of 11,926 domestic and cross-border minority acquisitions, we show that the interplay of financing and country-level governance motives is the main driver of such deals in both settings. We find that financially constrained firms are more likely to engage in both domestic and cross-border minority acquisitions, even in the face of higher information asymmetry and transaction costs that international transactions entail. In the wake of either domestic or cross-border deals, financially constrained firms' long-term debt increases; their short-term debt, cash holdings, and equity decrease. The greater likelihood of minority acquisitions of financially constrained firms is explained by the degree of corporate governance institutions in the country in which the targeted firm is based and by differences in levels of creditor and shareholder protections between the home countries of the targeted and acquiring firms involved. Our results remain robust after controlling for alternative explanations such as the contracting motive, the gravity model of foreign transactions, economic development levels, and differences in tax and exchange rates.
+
+
+------------------------------------------------------------------------
+
+
+
 ### **Other Work-in-Progress**
 
 1. On the Study of Debt Structure Determinants -- draft can be obtained upon request.
