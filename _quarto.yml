@@ -5,6 +5,8 @@ website:
   repo-url: https://github.com/lsmacoris
   repo-actions: [edit, issue]
   title: "Lucas Macoris"
+  site-url: 'https://lsmacoris.github.io'
+  site-path: '/'
   google-analytics: "G-87FLN5SXEJ"
   navbar:
     left:
