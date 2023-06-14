@@ -14,6 +14,13 @@ Acquiring such skills provided me flexibility and allowed me to explore creativi
 
 All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains you why.
 
+```{r}
+
+suppressWarnings(message(readLines('hard-truth.txt')))
+
+```
+
+
 ## Actual role
 
 ```{r,results='hide',echo=FALSE}
