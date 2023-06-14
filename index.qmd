@@ -24,9 +24,3 @@ about:
 Welcome to my personal website!
 
 I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I have received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo). By sharing random thoughts and ideas with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn about it. Hopefully, I can make someone passionate about these things, too.
-
-```{r}
-
-suppressWarnings(message(readLines('hard-truth.txt')))
-
-```

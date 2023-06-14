@@ -41,7 +41,7 @@ website:
 
 format:
   html:
-    page-layout: article
+    page-layout: full
     theme:
       light: [flatly,light.scss]
       dark: [darkly,dark.scss]
