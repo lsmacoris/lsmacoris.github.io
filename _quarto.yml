@@ -4,7 +4,7 @@ project:
 website:
   repo-url: https://github.com/lsmacoris
   repo-actions: [edit, issue]
-  title: "Lucas Macoris"
+  title: "Lucas S. Macoris"
   site-url: 'https://lsmacoris.github.io'
   site-path: '/'
   google-analytics: "G-87FLN5SXEJ"
@@ -14,8 +14,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: practice.qmd
-        text: Practitioner Stuff
+      - href: handouts.qmd
+        text: Lecture Notes
       - href: academic.qmd
         text: Academic Research
       - href: posts.qmd
@@ -36,8 +36,8 @@ website:
       
   page-footer: 
    background: dark
-   left: Copyright 2023, Lucas Macoris
-   right: This website is built with [Quarto](https://quarto.org/)
+   left: Copyright 2024, Lucas Macoris.
+   right: Built with [Quarto](https://quarto.org/)
 
 format:
   html:
@@ -46,5 +46,6 @@ format:
       light: [flatly,light.scss]
       dark: [darkly,dark.scss]
 
+from: markdown+emoji
 
 

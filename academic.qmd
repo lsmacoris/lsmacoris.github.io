@@ -1,6 +1,15 @@
 ---
   title: "**My Academic Research**"
+  engine: knitr
 ---
+
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: {.justify}
 
 My research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms' financing and investment decisions, and what are the implications of these imperfections in terms of managerial action, firms' future outcomes, and market responses.
 
@@ -60,4 +69,7 @@ Below you can find some of my published/work-in-progress academic work:
 ### **Other Work-in-Progress**
 
 1. On the Study of Debt Structure Determinants -- draft can be obtained upon request.
-2. The Real Effects of Capital Requirements on the Brazilian Healthcare Industy -- draft can be obtained upon request.
+2. The Real Effects of Capital Requirements on the Brazilian Healthcare Industry -- draft can be obtained upon request.
+
+
+:::

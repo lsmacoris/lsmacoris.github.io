@@ -1,10 +1,11 @@
 ---
 title: "Lucas S. Macoris"
-image: profile_TEST.jpg
+image: Lucas Macoris Profile.jpg
+engine: knitr
 about:
-  template: jolla
-  image-shape: round
-  image-width: 20em
+  template: trestles
+  image-shape: rectangle
+  image-width: 25em
   links:
     - icon: github
       text: GitHub
@@ -18,9 +19,30 @@ about:
     - icon: file-pdf
       text: CV
       href: https://drive.google.com/file/d/184m-BDeB-31SSyEuzqINco2UzqRFXhma/view?usp=drive_link
-
 ---
 
-Welcome to my personal website!
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
 
-I am an Applied Economist/Data Scientist who works as a Media Marketing Mix/Data Science Consultant at [Circana](https://www.circana.com/). I have received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo). By sharing random thoughts and ideas with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn about it. Hopefully, I can make someone passionate about these things, too.
+::: {.justify}
+
+
+::: {style="font-size: 150%;"}
+**Welcome to my personal website :wink:**
+:::
+
+I am an Applied Economist currently serving as a Media Marketing Mix & Data Science Consultant at [Circana](https://www.circana.com/). I have received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May, 2023.
+
+**Starting February 2024, I will be joining [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/) as an Assistant Professor (part-time) of Finance in the *Accounting, Finance and Control Department*.**
+
+On this site, you will find a repository of valuable resources including lecture notes, technical handouts, and blog posts. These materials delve into my academic and practitioner interests, spanning Corporate Finance, Causal Identification, R/Python Programming, and Consumer Behavior and Analytics. For comprehensive access, please visit my [GitHub](https://github.com/lsmacoris) page, which also hosts supplementary materials like coding notebooks and sample datasets.
+
+By sharing some of my ideas along with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn from it. Hopefully, in the very long end, I can make someone passionate about these things, too :heart:
+
+If you have any questions and/or comments, do not hesitate to reach out to through [this](mailto:lucasmacoris@gmail.com) email.
+
+
+:::
