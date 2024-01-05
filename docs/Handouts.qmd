@@ -1,22 +1,24 @@
 ---
-  title: "**What I have been reading recently...**"
+  title: "**Lecture Notes and Handouts**"
+  engine: knitr
 ---
 ---
-In case you wonder what are good reading tips, here's a few list of very interesting, technical papers that I have been reading extensively and I recommend to everyone that is interested in applied economics (and, in some cases, quantitative marketing):
 
-## **Marketing Mix Modeling**
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
 
-1. [Challenges and Opportunities in Media Mix Modeling](https://static.googleusercontent.com/media/research.google.com/pt-BR//pubs/archive/45998.pdf)
+::: {.justify}
 
-2. [Bayesian Methods for Media Mix Modeling with Carryover and Shape Effects](https://static.googleusercontent.com/media/research.google.com/pt-BR//pubs/archive/46001.pdf)
+Within this section, you'll discover a meticulously organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage [Quarto](www.quarto.org), an open-source scientific and technical publishing system that supports *R*, *Python*, *Julia*, and *Observable*. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by [Reveal JS](https://revealjs.com/).
+
+For comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official [reference](https://quarto.org/docs/reference/) material.
+ 
+## **Financial Management (work-in-progress)**
+
+These series of slides and lecture notes relate to the *Financial Management* course (undergraduate level, FGV-EAESP). **Content TBD**.
 
 
-3. [A Comparison of Approaches to Advertising Measurement: Evidence from Big Field Experiments at Facebook](https://www.kellogg.northwestern.edu/faculty/gordon_b/files/fb_comparison.pdf)
-
-## **Methods in Applied (Micro)economics**
-
-1. [What's trending in difference-in-differences? A synthesis of the recent econometrics literature](https://www.sciencedirect.com/science/article/abs/pii/S0304407623001318)
-
-2. [Difference-in-Differences with multiple time periods](https://www.sciencedirect.com/science/article/abs/pii/S0304407620303948?via%3Dihub)
-
-3. [Mostly Harmless Econometrics: an Empiricist's Companion](https://www.mostlyharmlesseconometrics.com/) this has been a good companion since always.
+:::

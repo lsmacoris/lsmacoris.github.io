@@ -285,5 +285,12 @@
     "title": "Efficiently Download and Manage Yahoo! Finance Data with R",
     "section": "Final Thoughts",
     "text": "Final Thoughts\nThis example outlines just a simple application of functional programming for a situation where there are several nested lists holding diverse structures. However, applications go far beyond than that, and it is something that I would definitely recommend to anyone that is working with stock price data that spans multiple tickers.\nI hope you enjoy this post!"
+  },
+  {
+    "objectID": "docs/handouts.html#financial-management-work-in-progress",
+    "href": "docs/handouts.html#financial-management-work-in-progress",
+    "title": "Lecture Notes and Handouts",
+    "section": "Financial Management (work-in-progress)",
+    "text": "Financial Management (work-in-progress)\nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP). Content TBD."
   }
 ]
