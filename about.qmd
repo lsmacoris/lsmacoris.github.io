@@ -43,7 +43,7 @@ All in all, from what I can say, there's really nothing that could make me happi
 message("50% of my marketing budget is wasted. Which half?")
 ```
 
-In late 2021, I joined [Circana](www.circana.com) (former IRI + NPD), the world's most extensive data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
+In late 2021, I joined [Circana](https://www.circana.com) (former IRI + NPD), the world's most extensive data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
 
 More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating massive amounts (>>100 GB!) of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on advertisement spend. My work helps CPG clients move millions of dollars annually towards marketing efforts that have shown to be the top performers and understand why they performed as such.
 
