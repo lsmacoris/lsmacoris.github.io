@@ -16,8 +16,7 @@ listing:
 
 ::: {.justify}
 
-In this session, I aim to organize some thoughts, ideas, and coding routines that I have implemented along the way. Although I tried my best to organize and trace back all references to cite them properly throughout these posts, I owe a lot to the vibrant `R` community that is extensively widespread across blog posts, *StackOverFlow*, and other channels.
-
+In this session, I aim to organize some thoughts, ideas, and coding routines I have implemented. Although I tried my best to collect and trace back all references to cite them properly throughout these posts, I owe a lot to the vibrant `R` community that is extensively widespread across blog posts, *StackOverflow*, and other channels.
 
 
 :::

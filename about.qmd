@@ -13,7 +13,7 @@
 :::: {.columns}
 
 ::: {.column width="40%"}
-![Lucas Macoris. Photo: Juliana Rizieri.](Retrato-Lucas-2023-239.jpg){width=100% fig-align="left" fig-alt="Lucas Macoris"}
+![Lucas Macoris. Photo: Juliana Rizieri.](Lucas Macoris Portrait.jpg){width=100% fig-align="left" fig-alt="Lucas Macoris"}
 :::
 
 ::: {.column width="5%"}
@@ -23,15 +23,15 @@
 
 ## Background
 
-I have received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo, Brazil) in May, 2023. I have also received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).
+I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).
 
-My academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms' financing and investment decisions, and what are the implications of these imperfections in terms of managerial action, firms' future outcomes, and market responses.
+My academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.
 
-Throughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I first discovered [DataCamp](www.datacamp.com) and enrolled in my first `R` programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in `R` forums, *StackOverFlow* pages, lecture notes, among other publicly shared materials. The ability to navigate common questions, learning from the shared knowledge, transformed this significant transition into an enjoyable experience that I aim to contribute to.
+Throughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered [DataCamp](www.datacamp.com) and enrolled in my first `R` programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in `R` forums, *StackOverflow* pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.
 
-Acquiring such skills provided me flexibility and allowed me to explore creativity to better express ideas and look for answering interesting questions without the hasle of putting hours of work in repetitive tasks. I used `R`, `Python`, `SQL`, `LaTeX`, and all of its related interfaces in literally everything related to my research agenda, as well as during several undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, as well as during my experience working as a Research Assistant in the Brazilian Central Bank.
+Acquiring such skills provided me with flexibility and allowed me to explore creativity to express ideas better and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used `R`, `Python`, `SQL`, `LaTeX`, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, and  during my experience working as a Research Assistant in the Brazilian Central Bank.
 
-All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains you why.
+All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains why.
 
 :::
 
@@ -43,18 +43,18 @@ All in all, from what I can say, there's really nothing that could make me happi
 message("50% of my marketing budget is wasted. Which half?")
 ```
 
-In late 2021, I joined [Circana](www.circana.com) (former IRI + NPD), the world's largest data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
+In late 2021, I joined [Circana](www.circana.com) (former IRI + NPD), the world's most extensive data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
 
-More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating huge amounts (>>100gb!) of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on adverstisement spend. My work helps CPG clients to move millions of dollars every year across towards marketing efforts that have shown to be the top performers, and also understand *why* they performed as such.
+More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating massive amounts (>>100 GB!) of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on advertisement spend. My work helps CPG clients move millions of dollars annually towards marketing efforts that have shown to be the top performers and understand why they performed as such.
 
-I use a ton of Data Science and Applied Economics concepts to get my way around this process from and end-to-end perspective. I employ automated ETL (*Extract, Treat, and Load*) routines to ingest unstructured data, apply econometric models in large scale, and use awesome open-source technologies to analyze and automate output reporting in convenient formats.
+I use a handful of Data Science and Applied Economics concepts to get around this process from an end-to-end perspective. I employ automated ETL (*Extract, Treat, and Load*) routines to ingest unstructured data, apply econometric models on a large scale, and use excellent open-source technologies to analyze and automate output reporting in convenient formats.
 
 ![](Circana-Logo.jpg){width=25% fig-align='center'}
 
 
 ## Academic Affiliations
 
-In 2024, I joined [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/) as an Assistant Professor (part-time) of Finance in the *Accounting, Finance and Control Department*. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of administration, economics, communication, international relations and others, both in the public and private sectors.
+In February 2024, I will be joining [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/) as an Assistant Professor (part-time) of Finance in the *Accounting, Finance, and Control Department*. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of Business Management, Economics, Communication, and International Relations, both in the public and private sectors.
 
 
 ![](FGV-Logo.png){width=50% fig-align='center'}
