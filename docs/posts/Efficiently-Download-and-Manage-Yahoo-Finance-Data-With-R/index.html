@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lucas S. Macoris">
-<meta name="dcterms.date" content="2023-09-27">
-<meta name="description" content="ETL routines using functional programming for working with large sets of stock-level data simultaneously.">
+<meta name="dcterms.date" content="2023-05-20">
+<meta name="description" content="A set of ETL routines to collect, treat, and analyze stock price information for a bundle of tickers simultaneously.">
 
-<title>Lucas Macoris - How to Download and Efficiently Manage Stock Data from Yahoo! Finance for Multiple Tickers using R</title>
+<title>Lucas S. Macoris - Efficiently Download and Manage Yahoo! Finance Data with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,7 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Lucas Macoris</span>
+    <span class="navbar-title">Lucas S. Macoris</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -138,8 +138,8 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../practice.html" rel="" target="">
- <span class="menu-text">Practitioner Stuff</span></a>
+    <a class="nav-link" href="../../handouts.html" rel="" target="">
+ <span class="menu-text">Lecture Notes</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../academic.html" rel="" target="">
@@ -183,15 +183,14 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">How to Download and Efficiently Manage Stock Data from Yahoo! Finance for Multiple Tickers using R</h1>
+      <h1 class="title">Efficiently Download and Manage Yahoo! Finance Data with R</h1>
                   <div>
         <div class="description">
-          ETL routines using functional programming for working with large sets of stock-level data simultaneously.
+          A set of ETL routines to collect, treat, and analyze stock price information for a bundle of tickers simultaneously.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Yahoo! Finance</div>
-                <div class="quarto-category">Stocks</div>
+                <div class="quarto-category">Quarto</div>
                 <div class="quarto-category">R</div>
               </div>
                   </div>
@@ -207,7 +206,7 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
               <a href="https://www.circana.com/">
-              Ph.D.&nbsp;in Economics @ INSPER (Sao Paulo, Brazil) | Data Science @ Circana
+              Ph.D.&nbsp;in Economics @ INSPER (Sao Paulo, Brazil) &amp; Media Mix Modeling/Data Science @ Circana
               </a>
             </p>
         </div>
@@ -219,7 +218,7 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 27, 2023</p>
+        <p class="date">May 20, 2023</p>
       </div>
     </div>
     
@@ -237,135 +236,90 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 
 
 
-<section id="downloading-multiple-stock-level-information-from-yahoo-finance-using-r" class="level2">
-<h2 class="anchored" data-anchor-id="downloading-multiple-stock-level-information-from-yahoo-finance-using-r">Downloading Multiple Stock-level Information from Yahoo! Finance using R</h2>
-<p>Whenever downloading data from <em>Yahoo! Finance</em> using <code>quantmod</code>, I’ve always found it difficult to organize a collection of objects in cases where the number of requested tickers large. Not only for the sake of organization, sometimes we want to perform calculations that span a large set of assets and visualize results in an aggregate fashion. For example, say that one wants estimate how persistent prices for several stocks are using past information. The naivest way to do it would be to loop over several tickers, collect the metric, and append to a <code>data.frame()</code> that will be used to analyze metrics (<em>i.e</em>, using histograms and summary statistics).</p>
-<p>Although this is totally up to you, I’ve selected a few packages that make the overall explanation easier:</p>
+<p>Whenever downloading data from <em>Yahoo! Finance</em> using <code>quantmod</code>, I’ve always found it difficult to organize a collection of objects in cases where the number of tickers requested is large. Notwithstanding, not only for the sake of organization, sometimes we want to perform calculations that span a large set of assets and visualize results in an aggregate fashion. For example, say that one wants estimate how persistent prices for several stocks are using past information. The naivest way to do it would be to loop over several tickers, collect the metric, and append to a <code>data.frame()</code> that will be used to analyze metrics (<em>i.e</em>, using histograms and summary statistics).</p>
+<p>I happened to find <code>purrr</code> (see <a href="https://purrr.tidyverse.org">documentation</a>) to be a handy companion for tasks like this. When using its functional programming features, not only we can have an easier way to work with multiple tickers, but also work with a much cleaner environment – as no one wants to have 100+ <code>xts</code> objects in our environment everytime when running the code.</p>
+<p>To that matter, this notebook showcases how to collect and organize data from <em>Yahoo! Finance</em> and perform calculations that span across all tickers. This can be very useful, for example, when creating an automated screening system in which, based on a set of technical indicators, can easily run a screening process in order to select a bundle of assets for a given trading strategy.</p>
+<p>I am going to present a simple example using a set of brazilian traded stocks in <em>Bovespa</em>. All the stocks are presented in the auxiliary <em>.csv</em> file, <code>Assets.csv</code>, and can be changed to accomodate any stock available in <em>Yahoo! Finance</em> servers. This file contains approximataely 75 unique tickers from the Brazilian Stock Market that were tradable back in 2019. What makes it difficult to use <code>quantmod</code>’s capabilities is the fact that some tickers are not available and/or do not have data for the requested period. Whenever running a <code>for</code> loop and iterate through these tickers, one might come across a <code>warning</code> or an <code>error</code> message that crashes the task. To overcome such difficulty, I have developed some wrappers using the <code>tryCatch()</code> approach.</p>
+<p><strong>Important Remark</strong>: <em>Yahoo! Finance</em> generally offers data with splits and dividends adjustments and therefore may not be the same as the brokerage information. In this sense, recommendations must also be analyzed through technical indicators presented on the brokerage account. Additionally, one can change the log in order to use any other provider of financial data of the same format, such as <a href="https://www.alphavantage.co/"><em>AlphaVantage</em></a>, which also has an API support into the <code>quantmod</code> library.</p>
+<section id="loading-necessary-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="loading-necessary-libraries">Loading Necessary Libraries</h2>
+<p>Although this is totally up to you, I’ve selected a few packages that make the overall task easier.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>packages.to.load<span class="ot">=</span><span class="fu">c</span>(<span class="st">"ggplot2"</span>,<span class="st">"dplyr"</span>,<span class="st">"PerformanceAnalytics"</span>,<span class="st">"quantmod"</span>,<span class="st">"xts"</span>,<span class="st">"purrr"</span>,<span class="st">"glue"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Load all packages</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(packages.to.load,library,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Using the <code>getSymbols()</code> function from <code>quantmod</code>, we can loop over a list of stocks and collect the information:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>list_of_assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AAPL'</span>,<span class="st">'MSFT'</span>,<span class="st">'GOOG'</span>,<span class="st">'GOOGL'</span>,<span class="st">'AMZN'</span>,<span class="st">'NVDA'</span>,<span class="st">'TSLA'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (assets <span class="cf">in</span> list_of_assets){</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getSymbols</span>(assets)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>…which, by default, will load each individual <code>asset</code> in the <code>list_of_assets</code> that was passed to <code>GetSymbols()</code> in your <code>R</code> session:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="r-session-example.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 1: R-Session-Overloaded</figcaption>
-</figure>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(packages.to.load,library,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the list of Assets</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Assets<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'Assets.csv'</span>,<span class="at">sep=</span><span class="st">';'</span>,<span class="at">encoding =</span> <span class="st">'UTF-8'</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="handling-multiple-tickers-from-yahoo-finance" class="level2">
-<h2 class="anchored" data-anchor-id="handling-multiple-tickers-from-yahoo-finance">Handling Multiple Tickers from Yahoo! Finance</h2>
-<p>In this very simple example, having a list of seven distinct does not create a messy <code>R</code> environment to work, but that can easily be the case in applications where you need to constantly track a higher number of stocks. Likewise, since you’ve downloaded data for multiple tickers, it is likely the case that you need to perform operations for each asset. In this case, since each assets is loaded as a <code>.xts</code> object in your session, you might need to <code>loop</code> over each asset in order to perform a given operation.</p>
-<p>Say, for example, that after loading the data, we wanted to calculate a 30-day moving average and store the results. Since each <code>asset</code> has been loaded separately in our session, we need to iterate over each asset, collect the column that we want to calculate a moving-average, and collapse the results:</p>
+<section id="getting-the-data-and-putting-into-a-clean-list-structure" class="level2">
+<h2 class="anchored" data-anchor-id="getting-the-data-and-putting-into-a-clean-list-structure">Getting the data and putting into a clean list structure</h2>
+<p>After loading the data, we can iterate through our list of tickers to organize the information. One important callout is that whenever we want to retrieve some technical indications (for example, from the <code>TTR</code> package), we need to ensure that there are no <code>NA</code>s in our data. For that, we’ll wrap our call using the <code>na.locf()</code> call to repeat the latest information available:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Initialize an empty xts to collect information</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SMA_df<span class="ot">=</span><span class="fu">xts</span>()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(asset <span class="cf">in</span> list_of_assets){</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Collect the Close column and perform a moving average</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  SMA_df<span class="ot">=</span>SMA_df<span class="sc">%&gt;%</span><span class="fu">merge.xts</span>(<span class="fu">get</span>(asset)[,<span class="fu">glue</span>(<span class="st">'{asset}.Close'</span>)]<span class="sc">%&gt;%</span><span class="fu">SMA</span>(<span class="dv">30</span>)<span class="sc">%&gt;%</span><span class="fu">setNames</span>(<span class="fu">glue</span>(<span class="st">'{asset}_SMA'</span>)))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot xts</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.xts</span>(SMA_df,<span class="at">main=</span><span class="st">'30-day moving average</span><span class="sc">\n</span><span class="st">for selected U.S. stocks'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addLegend</span>(<span class="st">"topleft"</span>,<span class="at">legend.names =</span> list_of_assets,<span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(list_of_assets),<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Well, that seemed to do the trick. However, is this something that we might want to adopt for all cases with multiple tickers? Probably not. If the number of tickers is large (e.g, <span class="math inline">\(&gt;&gt;100\)</span>) and the calculations that we need to perform are more computational-intensive, such as extracting a time-series component from our data, iterating over assets using <code>for</code> loops will be an inneficient way of handling these tasks, as each computation will require you to loop over different <code>.xts</code> objects stored in your session.</p>
-</section>
-<section id="applying-functional-programming-to-stock-level-information" class="level2">
-<h2 class="anchored" data-anchor-id="applying-functional-programming-to-stock-level-information">Applying Functional Programming to Stock-Level Information</h2>
-<p>I happened to find <code>purrr</code> (see <a href="https://purrr.tidyverse.org">documentation</a>) to be a handy companion for tasks like this. When using its functional programming features, not only we can have an easier way to work with multiple tickers, but also work with a much cleaner environment – as no one wants to have 100+ <code>xts</code> objects in our environment everytime when running the code.</p>
-<p>This notebook showcases how to collect and organize data from <em>Yahoo! Finance</em> and perform calculations that span across all tickers. This can be very useful, for example, when creating an automated screening system in which, based on a set of technical indicators, can easily run a screening process in order to select a bundle of assets for a given trading strategy.</p>
-<p>I am going to present a simple example using a set of brazilian traded stocks traded in <em>Bovespa</em>. All the stocks are presented in the auxiliary <em>.csv</em> file, <code>Assets.csv</code>, and can be changed to accomodate any stock available in <em>Yahoo! Finance</em> servers. This file contains approximataely 75 unique tickers from the Brazilian Stock Market that were tradable back in 2019. What makes it difficult to use <code>quantmod</code>’s capabilities is the fact that some tickers are not available and/or do not have data for the requested period. Whenever running a <code>for</code> loop and iterate through these tickers, one might come across a <code>warning</code> or an <code>error</code> message that crashes the task. To overcome such difficulty, I have developed some wrappers using the <code>tryCatch()</code> approach.</p>
-<p><strong>Important Remark</strong>: <em>Yahoo! Finance</em> generally offers data with splits and dividends adjustments and therefore may not be the same as the brokerage information. In this sense, recommendations must also be analyzed through technical indicators presented on the brokerage account. Additionally, one can change the log in order to use any other provider of financial data of the same format, such as <a href="https://www.alphavantage.co/"><em>AlphaVantage</em></a>, which also has an API support into the <code>quantmod</code> library.</p>
-</section>
-<section id="using-functional-programming-with-yahoo-finance-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="using-functional-programming-with-yahoo-finance-in-r">Using Functional Programming with Yahoo! Finance in R</h2>
-<p>After loading the data, we can iterate through our list of tickers to organize the information. One important callout is that whenever we want to retrieve some technical indicators (for example, from the <code>TTR</code> package), we need to ensure that there are no <code>NA</code>s in our data. For that, we’ll wrap our call using the <code>na.locf()</code> call to repeat the latest information available:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the list of Assets</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Assets<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'Assets.csv'</span>,<span class="at">sep=</span><span class="st">';'</span>,<span class="at">encoding =</span> <span class="st">'UTF-8'</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)[,<span class="dv">1</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Let's take a look at the structure of the file</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Assets<span class="sc">%&gt;%</span><span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let's take a look at the structure of the file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Assets<span class="sc">%&gt;%</span><span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ABEV3.SA" "AZUL4.SA" "B3SA3.SA" "BBAS3.SA" "BBDC3.SA"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create empty data.frames to collect downloaded and error cases</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>downloaded<span class="ot">=</span><span class="fu">data.frame</span>()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>errors<span class="ot">=</span><span class="fu">data.frame</span>()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Getting Data: now, we are going to request for chunks of 5 assets per time in Yahoo Finance server.</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>adjust_ticker_data <span class="ot">&lt;-</span> <span class="cf">function</span>(ticker){</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">na.locf</span>(<span class="fu">Cl</span>(ticker)))</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>Tickers<span class="ot">=</span><span class="fu">list</span>()</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> Assets){</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  Data<span class="ot">=</span><span class="fu">suppressWarnings</span>(</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tryCatch</span>({</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">adjust_ticker_data</span>(<span class="fu">getSymbols</span>(i,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">auto.assign =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">from=</span><span class="st">'2019-01-01'</span>,<span class="at">to=</span><span class="fu">Sys.Date</span>())</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                         )},</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">error =</span> <span class="cf">function</span>(e){</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">assign</span>(<span class="st">"errors"</span>,<span class="fu">rbind</span>(errors,i),<span class="at">envir=</span>.GlobalEnv)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">#If successful, we'll be able to have a xts object to get information on prices:</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.xts</span>(Data)){</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  downloaded<span class="ot">=</span>downloaded<span class="sc">%&gt;%</span><span class="fu">rbind</span>(i)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  Bands <span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,BBands))</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  RSI <span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,RSI))</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  SMA<span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,SMA))</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  Tickers[[i]]<span class="ot">=</span><span class="fu">list</span>(<span class="at">Data=</span>Data,</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">BBands=</span>Bands,</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>                    <span class="at">RSI=</span>RSI,</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">SMA=</span>SMA)</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Clear from memory to avoid if conditions to be satisfied with past iterations</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(Data,Bands,RSI,SMA)</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Retrieve status information:</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">glue</span>(<span class="st">'Data not downloaded for the following tickers: {errors}.'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create empty data.frames to collect downloaded and error cases</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>downloaded<span class="ot">=</span><span class="fu">data.frame</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>errors<span class="ot">=</span><span class="fu">data.frame</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Getting Data: now, we are going to request for chunks of 5 assets per time in Yahoo Finance server.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>adjust_ticker_data <span class="ot">&lt;-</span> <span class="cf">function</span>(ticker){</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">na.locf</span>(<span class="fu">Cl</span>(ticker)))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Tickers<span class="ot">=</span><span class="fu">list</span>()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> Assets){</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  Data<span class="ot">=</span><span class="fu">suppressWarnings</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tryCatch</span>({</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">adjust_ticker_data</span>(<span class="fu">getSymbols</span>(i,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">auto.assign =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">from=</span><span class="st">'2019-01-01'</span>,<span class="at">to=</span><span class="fu">Sys.Date</span>())</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                         )},</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">error =</span> <span class="cf">function</span>(e){</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">assign</span>(<span class="st">"errors"</span>,<span class="fu">rbind</span>(errors,i),<span class="at">envir=</span>.GlobalEnv)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">#If successful, we'll be able to have a xts object to get information on prices:</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.xts</span>(Data)){</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  downloaded<span class="ot">=</span>downloaded<span class="sc">%&gt;%</span><span class="fu">rbind</span>(i)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  Bands <span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,BBands))</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  RSI <span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,RSI))</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  SMA<span class="ot">=</span> <span class="fu">do.call</span>(merge,<span class="fu">lapply</span>(Data,SMA))</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  Tickers[[i]]<span class="ot">=</span><span class="fu">list</span>(<span class="at">Data=</span>Data,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">BBands=</span>Bands,</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                    <span class="at">RSI=</span>RSI,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">SMA=</span>SMA)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Clear from memory to avoid if conditions to be satisfied with past iterations</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(Data)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Retrieve status information:</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">glue</span>(<span class="st">'Data not downloaded for the following tickers: {errors}.'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Data not downloaded for the following tickers: c("BRML3.SA", "BTOW3.SA", "IGTA3.SA", "LAME4.SA", "SMLS3.SA", "TIMP3.SA", "VIVT4.SA", "VVAR3.SA", "PARD3.SA", "HGTX3.SA", "GNDI3.SA", "SULA11.SA").</code></pre>
+<pre><code>Data not downloaded for the following tickers: c("BRML3.SA", "BTOW3.SA", "ENBR3.SA", "IGTA3.SA", "LAME4.SA", "SMLS3.SA", "TIMP3.SA", "VIVT4.SA", "VVAR3.SA", "PARD3.SA", "HGTX3.SA", "GNDI3.SA", "SULA11.SA").</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">glue</span>(<span class="st">'Successfully downloaded data for the following tickers: {downloaded}.'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">glue</span>(<span class="st">'Successfully downloaded data for the following tickers: {downloaded}.'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Successfully downloaded data for the following tickers: c("ABEV3.SA", "AZUL4.SA", "B3SA3.SA", "BBAS3.SA", "BBDC3.SA", "BBDC4.SA", "BBSE3.SA", "BRAP4.SA", "BRFS3.SA", "BRKM5.SA", "CCRO3.SA", "CIEL3.SA", "CMIG4.SA", "CSAN3.SA", "CSNA3.SA", "CVCB3.SA", "CYRE3.SA", "ECOR3.SA", "EGIE3.SA", "ELET3.SA", "ELET6.SA", "EMBR3.SA", "ENBR3.SA", "EQTL3.SA", "FLRY3.SA", "GGBR4.SA", "GOAU4.SA", "GOLL4.SA", "HYPE3.SA", "IRBR3.SA", "ITSA4.SA", "ITUB4.SA", "JBSS3.SA", "KLBN11.SA", "COGN3.SA", "LREN3.SA", "MGLU3.SA", "MRFG3.SA", "MRVE3.SA", "MULT3.SA", "PETR3.SA", "PETR4.SA", 
-"QUAL3.SA", "RADL3.SA", "RAIL3.SA", "RENT3.SA", "SANB11.SA", "SBSP3.SA", "SUZB3.SA", "UGPA3.SA", "USIM5.SA", "VALE3.SA", "WEGE3.SA", "YDUQ3.SA", "ODPV3.SA", "GRND3.SA", "ARZZ3.SA", "HAPV3.SA", "CRFB3.SA", "TOTS3.SA", "PSSA3.SA", "UGPA3.SA", "EZTC3.SA", "GFSA3.SA").</code></pre>
+<pre><code>Successfully downloaded data for the following tickers: c("ABEV3.SA", "AZUL4.SA", "B3SA3.SA", "BBAS3.SA", "BBDC3.SA", "BBDC4.SA", "BBSE3.SA", "BRAP4.SA", "BRFS3.SA", "BRKM5.SA", "CCRO3.SA", "CIEL3.SA", "CMIG4.SA", "CSAN3.SA", "CSNA3.SA", "CVCB3.SA", "CYRE3.SA", "ECOR3.SA", "EGIE3.SA", "ELET3.SA", "ELET6.SA", "EMBR3.SA", "EQTL3.SA", "FLRY3.SA", "GGBR4.SA", "GOAU4.SA", "GOLL4.SA", "HYPE3.SA", "IRBR3.SA", "ITSA4.SA", "ITUB4.SA", "JBSS3.SA", "KLBN11.SA", "COGN3.SA", "LREN3.SA", "MGLU3.SA", "MRFG3.SA", "MRVE3.SA", "MULT3.SA", "PETR3.SA", "PETR4.SA", "QUAL3.SA", 
+"RADL3.SA", "RAIL3.SA", "RENT3.SA", "SANB11.SA", "SBSP3.SA", "SUZB3.SA", "UGPA3.SA", "USIM5.SA", "VALE3.SA", "WEGE3.SA", "YDUQ3.SA", "ODPV3.SA", "GRND3.SA", "ARZZ3.SA", "HAPV3.SA", "CRFB3.SA", "TOTS3.SA", "PSSA3.SA", "UGPA3.SA", "EZTC3.SA", "GFSA3.SA").</code></pre>
 </div>
 </div>
 <p>What is very interesting when collecting information using lists is that we can easily organize data in a streamlined fashion that is very flexible when working with different data structure dimensions. For example, when inspecting the newly created <code>Tickers</code> list, it contains:</p>
@@ -374,66 +328,61 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 <li>One additional layer for the adjusted closing data; and</li>
 <li>Additional layers for each technical indicator</li>
 </ol>
-<p>Due to the way that it was structured, these objects do not need to hold a specific row <span class="math inline">\(\times\)</span> column dimension, as every object is stored in a single nested list, making our life much easier when dealing with multiple tickers:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="r-session-purrr.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 2: R Session when using list-like methods.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="r-list-structure.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 3: Structure of a list with multiple tickers</figcaption>
-</figure>
-</div>
+<p>Due to the way that it was structured, these objects do not need to hold a specific row <span class="math inline">\(\times\)</span> column dimension, as every object is stored in a single nested list, making our life much easies when dealing with multiple tickers.</p>
 </section>
-<section id="retrieve-list-information-with-functional-programming-using-purrr" class="level2">
-<h2 class="anchored" data-anchor-id="retrieve-list-information-with-functional-programming-using-purrr">Retrieve List Information with Functional Programming using purrr</h2>
+<section id="using-list-information-with-functional-programming" class="level2">
+<h2 class="anchored" data-anchor-id="using-list-information-with-functional-programming">Using list information with functional programming</h2>
 <p>Using <code>purrr</code> capabilities for functional programming can make overwhelming tasks that involve multiple tickers much easier. More specifically, <code>map</code> and its companions allow us to map functions across different lists, collect objects, and pipe it for other analysis and/or visualizations. Say, for example, that we want to understand what is the distribution of price persistence across <em>all</em> tickers. We can run an <span class="math inline">\(ARIMA(p,d,q)\)</span> model for each ticker, collec the coefficients, and then plot an histogram to understand the distribution of the autoregressive component, <span class="math inline">\(p\)</span>.</p>
 <p>In order to do that, we will create a new list that will extract all <code>Data</code> components of the nested ticker lists. With that, we will use a combination of the <code>map_*</code> family functions from <code>purrr</code> to feed the results directly into a <code>ggplot</code> chart – everything without creating a single new object!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using map_* + ggplot to analyze the distribution of the autoregressive parameter </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">lapply</span>(Tickers,<span class="st">'[['</span>,<span class="st">"Data"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(arima,<span class="at">order=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)))<span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="st">"coef"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(<span class="st">'ar1'</span>)<span class="sc">%&gt;%</span><span class="fu">t</span>()<span class="sc">%&gt;%</span><span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>V1))<span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">'Autoregressive Parameter'</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">'Count'</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">'Distribution of autoregressive parameters across Brazilian stocks'</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">'Assuming an ARIMA(1,1,1) model for the stocks'</span>)<span class="sc">+</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="fl">0.15</span>))<span class="sc">+</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fl">0.075</span><span class="sc">*</span>..count..),<span class="at">size=</span><span class="dv">1</span>,<span class="at">col=</span><span class="st">'red'</span>,<span class="at">linetype=</span><span class="st">'dashed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using map_* + ggplot to analyze the distribution of the autoregressive parameter </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">lapply</span>(Tickers,<span class="st">'[['</span>,<span class="st">"Data"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(arima,<span class="at">order=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="st">"coef"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(<span class="st">'ar1'</span>)<span class="sc">%&gt;%</span><span class="fu">t</span>()<span class="sc">%&gt;%</span><span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>V1))<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">'Autoregressive Parameter'</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">'Count'</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">'Distribution of autoregressive parameters across Brazilian stocks'</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">'Assuming an ARIMA(1,1,1) model for the stocks'</span>)<span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="fl">0.15</span>))<span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fl">0.075</span><span class="sc">*</span>..count..),<span class="at">size=</span><span class="dv">1</span>,<span class="at">col=</span><span class="st">'red'</span>,<span class="at">linetype=</span><span class="st">'dashed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(count)` instead.</code></pre>
+</div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="final-thoughts-financial-data-with-functional-programming-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="final-thoughts-financial-data-with-functional-programming-in-r">Final Thoughts: Financial Data with Functional Programming in R</h2>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
 <p>This example outlines just a simple application of functional programming for a situation where there are several nested lists holding diverse structures. However, applications go far beyond than that, and it is something that I would definitely recommend to anyone that is working with stock price data that spans multiple tickers.</p>
-<p>I definitely recommend going through the documentation of the packages used herein, as well as investigating some other very interesting variations of <em>Yahoo! Finance</em> data collection in R. In special, the <code>yfR</code> (see documentation <a href="https://github.com/ropensci/yfR">here</a>) package uses parallel computing to speed up the processing time when downloading multiple tickers.</p>
+<p>I hope you enjoy this post!</p>
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{s. macoris2023,
   author = {S. Macoris, Lucas},
-  title = {How to {Download} and {Efficiently} {Manage} {Stock} {Data}
-    from {Yahoo!} {Finance} for {Multiple} {Tickers} Using {R}},
-  date = {2023-09-27},
+  title = {Efficiently {Download} and {Manage} {Yahoo!} {Finance} {Data}
+    with {R}},
+  date = {2023-05-20},
   url = {https://lsmacoris.github.io/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-s. macoris2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-S. Macoris, Lucas. 2023. <span>“How to Download and Efficiently Manage
-Stock Data from Yahoo! Finance for Multiple Tickers Using R.”</span>
-September 27, 2023. <a href="https://lsmacoris.github.io/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R">https://lsmacoris.github.io/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R</a>.
+S. Macoris, Lucas. 2023. <span>“Efficiently Download and Manage Yahoo!
+Finance Data with R.”</span> May 20, 2023. <a href="https://lsmacoris.github.io/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R">https://lsmacoris.github.io/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -786,11 +735,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2023, Lucas Macoris</div>   
+    <div class="nav-footer-left">Copyright 2024, Lucas Macoris.</div>   
     <div class="nav-footer-center">
       &nbsp;
     <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/lsmacoris/edit/main/posts/Efficiently-Download-and-Manage-Yahoo-Finance-Data-With-R/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/lsmacoris/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
-    <div class="nav-footer-right">This website is built with <a href="https://quarto.org/">Quarto</a></div>
+    <div class="nav-footer-right">Built with <a href="https://quarto.org/">Quarto</a></div>
   </div>
 </footer>
 
