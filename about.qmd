@@ -1,5 +1,13 @@
 ---
-  title: "**About me**"
+title: "**About me**"
+image: Lucas Macoris Portrait.jpg
+engine: knitr
+about:
+  id: page-heading
+  template: trestles
+  image-shape: rectangle
+  image-width: 25em
+  
 ---
 
 ```{css, echo = FALSE}
@@ -9,9 +17,9 @@
 ```
 
 
-![Lucas Macoris. Photo: Juliana Rizieri.](Lucas Macoris Portrait.jpg){width=40% fig-align="left" fig-alt="Lucas Macoris"}
-
 ::: {.justify}
+
+:::{#page-heading}
 
 ## Background
 
@@ -25,6 +33,7 @@ Acquiring such skills provided me with flexibility and allowed me to explore my 
 
 All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains why.
 
+:::
 
 ## Private Affiliations
 

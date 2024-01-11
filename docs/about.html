@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -148,22 +147,7 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><strong>About me</strong></h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <div class="cell">
 <style type="text/css">
@@ -172,23 +156,33 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 }
 </style>
 </div>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="Lucas Macoris Portrait.jpg" class="img-fluid figure-img" style="width:40.0%" alt="Lucas Macoris"></p>
-<figcaption class="figure-caption">Lucas Macoris. Photo: Juliana Rizieri.</figcaption>
-</figure>
-</div>
 <div class="justify">
+<div class="quarto-about-trestles column-page">
+  <div class="about-entity">
+    <img src="Lucas Macoris Portrait.jpg" class="about-image
+  rectangle " style="width: 25em;">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>About me</strong></h1>
+</div>
+<div class="quarto-title-meta">
+  </div>
+</header>
+  </div>
+  <div class="about-contents"><div id="page-heading">
 <section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
+<h2 data-anchor-id="background">Background</h2>
 <p>I received my Ph.D.&nbsp;in Economics from <a href="https://www.insper.edu.br/en/">INSPER</a> (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor’s (in Management) and Master’s Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).</p>
 <p>My academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.</p>
 <p>Throughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered <a href="https://www.datacamp.com">DataCamp</a> and enrolled in my first <code>R</code> programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in <code>R</code> forums, <em>StackOverflow</em> pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.</p>
 <p>Acquiring such skills provided me with flexibility and allowed me to explore my creativity to better express ideas and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used <code>R</code>, <code>Python</code>, <code>SQL</code>, <code>LaTeX</code>, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D.&nbsp;enrollment, and during my experience working as a Research Assistant in the Brazilian Central Bank.</p>
 <p>All in all, from what I can say, there’s really nothing that could make me happier in my profession – I hope this page explains why.</p>
 </section>
+</div></div>
+</div>
+
 <section id="private-affiliations" class="level2">
-<h2 class="anchored" data-anchor-id="private-affiliations">Private Affiliations</h2>
+<h2 data-anchor-id="private-affiliations">Private Affiliations</h2>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>50% of my marketing budget is wasted. Which half?</code></pre>
@@ -199,10 +193,11 @@ gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 <p>I use a handful of Data Science and Applied Economics concepts to get around this process from an end-to-end perspective. I employ automated ETL (<em>Extract, Treat, and Load</em>) routines to ingest unstructured data, apply econometric models on a large scale, and use excellent open-source technologies to analyze and automate output reporting in convenient formats.</p>
 </section>
 <section id="academic-affiliations" class="level2">
-<h2 class="anchored" data-anchor-id="academic-affiliations">Academic Affiliations</h2>
+<h2 data-anchor-id="academic-affiliations">Academic Affiliations</h2>
 <p>In February 2024, I will be joining <a href="https://eaesp.fgv.br/">Getulio Vargas Foundation (FGV - EAESP)</a> as an Assistant Professor (part-time) of Finance in the <em>Accounting, Finance, and Control Department</em>. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of Business Management, Economics, Communication, and International Relations, both in the public and private sectors.</p>
 </section>
 </div>
+
 
 
 
@@ -342,13 +337,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
