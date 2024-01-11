@@ -36,7 +36,7 @@ website:
       
   page-footer: 
    background: dark
-   left: Copyright 2024, Lucas Macoris.
+   left: Copyright 2024, Lucas Macoris. Photography by [Juliana Rizieri](https://www.jurizieri.com.br/).
    right: Built with [Quarto](https://quarto.org/)
 
 format:
