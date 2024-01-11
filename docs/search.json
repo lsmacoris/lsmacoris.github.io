@@ -170,14 +170,14 @@
   {
     "objectID": "about.html#private-affiliations",
     "href": "about.html#private-affiliations",
-    "title": "About me",
+    "title": "Lucas S. Macoris",
     "section": "Private Affiliations",
     "text": "Private Affiliations\n\n\n50% of my marketing budget is wasted. Which half?\n\n\nIn late 2021, I joined Circana (former IRI + NPD), the world’s most extensive data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries.\nMore specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating massive amounts (&gt;&gt;100 GB!) of marketing measurement data to estimate econometric models that help our clients understand how their marketing efforts performed, which marketing drivers levered up their business, and what to do to achieve a higher return on advertisement spend. My work helps CPG clients move millions of dollars annually towards marketing efforts that have shown to be the top performers and understand why they performed as such.\nI use a handful of Data Science and Applied Economics concepts to get around this process from an end-to-end perspective. I employ automated ETL (Extract, Treat, and Load) routines to ingest unstructured data, apply econometric models on a large scale, and use excellent open-source technologies to analyze and automate output reporting in convenient formats."
   },
   {
     "objectID": "about.html#academic-affiliations",
     "href": "about.html#academic-affiliations",
-    "title": "About me",
+    "title": "Lucas S. Macoris",
     "section": "Academic Affiliations",
     "text": "Academic Affiliations\nIn February 2024, I will be joining Getulio Vargas Foundation (FGV - EAESP) as an Assistant Professor (part-time) of Finance in the Accounting, Finance, and Control Department. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of Business Management, Economics, Communication, and International Relations, both in the public and private sectors."
   },
@@ -292,5 +292,12 @@
     "title": "Lecture Notes and Handouts",
     "section": "Financial Management (work-in-progress)",
     "text": "Financial Management (work-in-progress)\nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP). Content TBD."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "Lucas S. Macoris",
+    "section": "About me",
+    "text": "About me\nI received my Ph.D. in Economics from INSPER (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor’s (in Management) and Master’s Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).\nMy academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.\nThroughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered DataCamp and enrolled in my first R programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in R forums, StackOverflow pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.\nAcquiring such skills provided me with flexibility and allowed me to explore my creativity to better express ideas and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used R, Python, SQL, LaTeX, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, and during my experience working as a Research Assistant in the Brazilian Central Bank.\nAll in all, from what I can say, there’s really nothing that could make me happier in my profession – I hope this page explains why."
   }
 ]

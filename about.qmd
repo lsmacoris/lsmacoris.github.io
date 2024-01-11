@@ -1,5 +1,5 @@
 ---
-title: "**About me**"
+title: ""
 image: Lucas Macoris Portrait.jpg
 engine: knitr
 about:
@@ -21,7 +21,7 @@ about:
 
 :::{#page-heading}
 
-## Background
+## About me
 
 I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).
 
