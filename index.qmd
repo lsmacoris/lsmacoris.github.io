@@ -40,7 +40,7 @@ I am an applied economist working as a Media Marketing Mix & Data Science Consul
 
 On this site, you will find a repository of valuable resources, including lecture notes, technical handouts, and blog posts. These materials delve not only into my academic interests, which span Corporate Finance and Household Finance, but also into common themes that I encounter as a data practitioner and enthusiast, such as `R` and `Python` programming, Applied Economics, Econometrics, Statistics, and Data Analytics. For comprehensive access, please visit my [GitHub](https://github.com/lsmacoris) page, which hosts supplementary materials like coding notebooks and sample datasets.
 
-By sharing some thoughts along with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn from it. Hopefully, in the long run, I can make someone passionate about these things, too :heart:
+By sharing some thoughts along with a few lines of code, I aim to bridge the gap between what I am passionate about and what the broader community can learn from it. Hopefully, in the long run, I can make someone passionate about these things, too.
 
 If you have any questions or comments, don't hesitate to get in touch with me through [this](mailto:lucasmacoris@gmail.com) email.
 
