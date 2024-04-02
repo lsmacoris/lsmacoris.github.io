@@ -36,7 +36,7 @@ about:
 
 I am an applied economist working as a Media Marketing Mix & Data Science Consultant at [Circana](https://www.circana.com/). I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May 2023.
 
-**Starting in February 2024, I will be joining [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/en) as an Lecturer (part-time) of Finance in the *Accounting, Finance, and Control Department*.**
+**Starting in February 2024, I will be joining [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/en) as a Lecturer (part-time) of Finance in the *Accounting, Finance, and Control Department*.**
 
 On this site, you will find a repository of valuable resources, including lecture notes, technical handouts, and blog posts. These materials delve not only into my academic interests, which span Corporate Finance and Household Finance, but also into common themes that I encounter as a data practitioner and enthusiast, such as `R` and `Python` programming, Applied Economics, Econometrics, Statistics, and Data Analytics. For comprehensive access, please visit my [GitHub](https://github.com/lsmacoris) page, which hosts supplementary materials like coding notebooks and sample datasets.
 
