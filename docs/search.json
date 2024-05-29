@@ -179,7 +179,7 @@
     "href": "about.html#academic-affiliations",
     "title": "Lucas S. Macoris",
     "section": "Academic Affiliations",
-    "text": "Academic Affiliations\nIn February 2024, I will be joining Getulio Vargas Foundation (FGV - EAESP) as an Assistant Professor (part-time) of Finance in the Accounting, Finance, and Control Department. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of Business Management, Economics, Communication, and International Relations, both in the public and private sectors."
+    "text": "Academic Affiliations\nIn February 2024, I will be joining Getulio Vargas Foundation (FGV - EAESP) as a Lecturer of Finance in the Accounting, Finance, and Control Department. FGV is a leading university in Latin America, offering a diverse and comprehensive set of undergraduate and graduate courses, providing an enriching learning environment for those seeking to excel in the areas of Business Management, Economics, Communication, and International Relations, both in the public and private sectors."
   },
   {
     "objectID": "handouts.html",
@@ -220,8 +220,8 @@
     "objectID": "handouts.html#financial-management",
     "href": "handouts.html#financial-management",
     "title": "Lecture Notes and Handouts",
-    "section": "Financial Management ",
-    "text": "Financial Management \nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP). Content TBD."
+    "section": "Financial Management",
+    "text": "Financial Management\nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP).\nLecture 1 - Introduction to Corporate Finance\nLecture 2 - Financial Analysis\nLecture 3 - Financial Analysis\nLecture 4 - Financial Analysis\nLecture 5 - Economic Value Added\nLecture 6 - Working Capital Management\nLecture 7 - Working Capital Management\nLecture 8 - Short-term Financial Planning\nLecture 9 - Short-term Financial Planning\nLecture 10 - Free Cash Flow\nLecture 11 - Investment Decision Rules\nLecture 12 - Investment Decision Rules\nLecture 13 - Capital Budgeting\nLecture 14 - Ensuring Positive NPVs\nLecture 15 - Valuation with Leverage\nLecture 16 - Valuation with Leverage\nLecture 17 - Valuation: Practical Case\nLecture 18 - Valuation: Practical Case\nLecture 19 - Mergers and Acquisitions"
   },
   {
     "objectID": "docs/Handouts.html",
@@ -299,5 +299,12 @@
     "title": "Lucas S. Macoris",
     "section": "About me",
     "text": "About me\nI received my Ph.D. in Economics from INSPER (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor’s (in Management) and Master’s Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).\nMy academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.\nThroughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered DataCamp and enrolled in my first R programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in R forums, StackOverflow pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.\nAcquiring such skills provided me with flexibility and allowed me to explore my creativity to better express ideas and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used R, Python, SQL, LaTeX, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, and during my experience working as a Research Assistant in the Brazilian Central Bank.\nAll in all, from what I can say, there’s really nothing that could make me happier in my profession – I hope this page explains why."
+  },
+  {
+    "objectID": "handouts.html#applied-quantitative-methods",
+    "href": "handouts.html#applied-quantitative-methods",
+    "title": "Lecture Notes and Handouts",
+    "section": "Applied Quantitative Methods",
+    "text": "Applied Quantitative Methods\nThese series of slides and lecture notes relate to the Applied uantitative Methods and Marketing Analytics course (master’s, University of Navarra).\nLecture 1 - Choice Models and its Applications\nLecture 2 - Choice Models and its Applications - pt 2\nLecture 3 - Multiple Choice Models\nLecture 4 - Multiple Choice Models - pt 2"
   }
 ]
