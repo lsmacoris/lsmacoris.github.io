@@ -14,7 +14,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: handouts.qmd
+      - href: https://lsmacoris.github.io/lectures
         text: Lecture Notes
       - href: academic.qmd
         text: Academic Research

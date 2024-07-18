@@ -12,41 +12,6 @@
 
 ::: {.justify}
 
-Within this section, you'll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage [Quarto](www.quarto.org), an open-source scientific and technical publishing system that supports *R*, *Python*, *Julia*, and *Observable*. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by [Reveal JS](https://revealjs.com/).
-
-For comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official [reference](https://quarto.org/docs/reference/) material.
- 
-## **Financial Management**
-
-These series of slides and lecture notes relate to the *Financial Management* course (undergraduate level, FGV-EAESP).
-
-[Lecture 1 - Introduction to Corporate Finance](https://lsmacoris.quarto.pub/intro-and-course-overview-financial-management/#/title-slide)  
-[Lecture 2 - Financial Analysis](https://lsmacoris.quarto.pub/l2-financial-analysis/#/title-slide)  
-[Lecture 3 - Financial Analysis](https://lsmacoris.quarto.pub/lecture-3---financial-analysis/#/title-slide)  
-[Lecture 4 - Financial Analysis](https://lsmacoris.quarto.pub/lecture-4---financial-analysis/#/title-slide)  
-[Lecture 5 - Economic Value Added](https://lsmacoris.quarto.pub/lecture-5-eva/#/title-slide)  
-[Lecture 6 - Working Capital Management](https://lsmacoris.quarto.pub/lecture-6---working-capital-management/#/title-slide)  
-[Lecture 7 - Working Capital Management](https://lsmacoris.quarto.pub/lecture-7---working-capital-management/#/title-slide)  
-[Lecture 8 - Short-term Financial Planning](https://lsmacoris.quarto.pub/lecture-8---short-term-financial-planning/#/title-slide)  
-[Lecture 9 - Short-term Financial Planning](https://lsmacoris.quarto.pub/lecture-9---short-term-financial-planning/#/title-slide)  
-[Lecture 10 - Free Cash Flow](https://lsmacoris.quarto.pub/lecture-10---free-cash-flow/#/title-slide)  
-[Lecture 11 - Investment Decision Rules](https://lsmacoris.quarto.pub/lecture-11---investment-decision-rules/#/title-slide)  
-[Lecture 12 - Investment Decision Rules](https://lsmacoris.quarto.pub/lecture-12---investment-decision-rules/)  
-[Lecture 13 - Capital Budgeting](https://lsmacoris.quarto.pub/lecture-13---capital-budgeting/)  
-[Lecture 14 - Ensuring Positive NPVs](https://lsmacoris.quarto.pub/lecture-14--how-to-ensure-that-projects-truly-have-positive-npvs/)  
-[Lecture 15 - Valuation with Leverage](https://lsmacoris.quarto.pub/lecture-15---capital-budgeting-and-valuation-with-leverage/)  
-[Lecture 16 - Valuation with Leverage](https://lsmacoris.quarto.pub/lecture-16-valuation-with-leverage/)  
-[Lecture 17 - Valuation: Practical Case](https://lsmacoris.quarto.pub/lecture-17---valuation-and-financial-modeling/)  
-[Lecture 18 - Valuation: Practical Case](https://lsmacoris.quarto.pub/lecture-18---valuation-and-financial-modeling/)  
-[Lecture 19 - Mergers and Acquisitions](https://lsmacoris.quarto.pub/lecture-19---mergers-and-acquisitions/)  
-
-## **Applied Quantitative Methods**
-
-These series of slides and lecture notes relate to the *Applied uantitative Methods and Marketing Analytics* course (master's, University of Navarra).
-
-[Lecture 1 - Choice Models and its Applications](https://lsmacoris.quarto.pub/lecture-1---choice-models-and-its-applications/)  
-[Lecture 2 - Choice Models and its Applications - pt 2](https://lsmacoris.quarto.pub/lecture-2---choice-models-and-its-applications/)  
-[Lecture 3 - Multiple Choice Models](https://lsmacoris.quarto.pub/lecture-3---multiple-choice-models/)  
-[Lecture 4 - Multiple Choice Models - pt 2](https://lsmacoris.quarto.pub/lecture-4---multiple-choice-models/)  
+Click [here](https://lsmacoris.github.io/lectures) to access all lecture notes.
 
 :::
