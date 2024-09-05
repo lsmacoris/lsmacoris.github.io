@@ -1,6 +1,6 @@
 ---
 title: "Lucas S. Macoris"
-image: Lucas Macoris Profile2.jpg
+image: test4.jpg
 engine: knitr
 about:
   template: jolla
