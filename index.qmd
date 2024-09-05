@@ -5,7 +5,7 @@ engine: knitr
 about:
   template: jolla
   image-shape: round
-  image-width: 25em
+  image-width: 20em
   links:
     - icon: github
       text: GitHub
