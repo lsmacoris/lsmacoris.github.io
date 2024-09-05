@@ -23,13 +23,11 @@ about:
 
 ## About me
 
-I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil).
+I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo, Brazil) in May 2023. I have also received my Bachelor's (in Management) and Master's Degree (Finance, Economics, and Econometrics) from the University of Sao Paulo (USP, Sao Paulo, Brazil). During my academic period, my research was focused at the intersection between Corporate Finance and Financial Intermediation. More specifically, I studied how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.
 
-My academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.
+Throughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered [DataCamp](https://www.datacamp.com) and enrolled in my first `R` programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in forum threads, *StackOverflow* pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.
 
-Throughout my academic journey, data in its diverse formats has been an integral part of my daily activities — a constant that will persist. I started coding when I discovered [DataCamp](https://www.datacamp.com) and enrolled in my first `R` programming course. Initially daunted by the complexity and the sheer shift from user-interface schemes, such as Excel, to programming languages, I found solace in the vibrant and supportive community spread in innumerous discussion threads in `R` forums, *StackOverflow* pages, lecture notes, among other publicly shared materials. The ability to navigate common questions and learn from shared knowledge transformed this significant transition into an enjoyable experience to which I aim to contribute.
-
-Acquiring such skills provided me with flexibility and allowed me to explore my creativity to better express ideas and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used `R`, `Python`, `SQL`, `LaTeX`, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, and  during my experience working as a Research Assistant in the Brazilian Central Bank.
+Acquiring such skills provided me with flexibility and allowed me to explore my creativity to better express ideas and look for answers to exciting questions without the hassle of putting hours of work into repetitive tasks. I used `R`, `Python`, `Shiny`, `SQL`, `LaTeX`, and all of its related interfaces in literally everything related to my research agenda, as well as undergraduate/graduate courses on applied economics and finance, where I worked as a Teaching Assistant during my Ph.D. enrollment, and  during my experience working as a Research Assistant at the Brazilian Central Bank.
 
 All in all, from what I can say, there's really nothing that could make me happier in my profession -- I hope this page explains why.
 
@@ -37,15 +35,13 @@ All in all, from what I can say, there's really nothing that could make me happi
 
 ## Private Affiliations
 
-```{r,results='hide',echo=FALSE}
-message("50% of my marketing budget is wasted. Which half?")
-```
-
 In late 2021, I joined [Circana](https://www.circana.com) (former IRI + NPD), the world's most extensive data analytics and market research company. Circana provides clients with consumer, shopper, and retail market intelligence and analysis focused on the consumer packaged goods, retail, and healthcare industries. 
 
-More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating massive amounts (>>100 GB!) of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on advertisement spend. My work helps CPG clients move millions of dollars annually towards marketing efforts that have shown to be the top performers and understand why they performed as such.
+More specifically, I work as a lead consultant for Media Marketing Mix (MMM) projects for CPG Brands. My work entails collecting, organizing, and treating massive amounts of marketing measurement data to estimate econometric models that help our clients understand *how* their marketing efforts performed, *which* marketing drivers levered up their business, and *what to do* to achieve a higher return on advertisement spend. My work helps CPG clients move millions of dollars annually towards marketing efforts that have shown to be the top performers and understand why they performed as such.
 
-I use a handful of Data Science and Applied Economics concepts to get around this process from an end-to-end perspective. I employ automated ETL (*Extract, Treat, and Load*) routines to ingest unstructured data, apply econometric models on a large scale, and use excellent open-source technologies to analyze and automate output reporting in convenient formats.
+I use a handful of Data Science and applied economics concepts to get around this process from an end-to-end perspective. I employ automated ETL (*Extract, Treat, and Load*) routines to ingest unstructured data, apply econometric models on a large scale, and use `R`, `Python` and its interfaces to analyze and automate output reporting in convenient formats.
+
+I also work as a data science consultant for individual projects - click [here](https://brindexes.shinyapps.io/backtester-app/) for an example of a live implementation of a backtesting strategy app for the U.S. market sugin `R` and `Shiny`.
 
 ## Academic Affiliations
 

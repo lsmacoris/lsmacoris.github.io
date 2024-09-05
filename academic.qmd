@@ -11,9 +11,6 @@
 
 ::: {.justify}
 
-My academic research lies at the intersection between Corporate Finance and Financial Intermediation. More specifically, I study how market frictions affect firms’ financing and investment decisions and the implications of these imperfections regarding managerial action, firms’ future outcomes, and market responses.
-
-
 Below, you can find some of my published/work-in-progress academic work:
 
 ------------------------------------------------------------------------
@@ -46,7 +43,7 @@ Below, you can find some of my published/work-in-progress academic work:
 
 *Joint work with Andre Mancha (Insper) and Naercio Aquino Menezes-Filho (Insper)*
 
-* *Status*: Accepted for Publication at *Revista Brasileira de Economia*. Draft version can be obtained [here](https://drive.google.com/file/d/1CzMH34--fD5PcYu8mwWdfU1A641M4-Hy/view?usp=share_link).
+* *Status*: Published at *Revista Brasileira de Economia*. Click [here](https://periodicos.fgv.br/rbe/article/view/84448) to access.
 
 *Abstract*: we analyze two quasi-experiments to assess how urban traffic restrictions and social distancing norms affect pollution. First, using hourly air pollution levels from thirty-three monitoring stations in different municipalities of the State of São Paulo, we exploit exogenous variation in quarantine rules across cities following the COVID-19 outbreak to estimate how social distancing affected pollution levels. We find an average decrease of 22.4% in air pollution after the capital's quarantine announcement, with heterogeneous effects across pollutants. We also compare this effect with another quasi-experiment of exogenous suspensions in traffic restrictions between 2000-2018 in the same State. We find increases of 16.7% in air pollution when more cars are allowed on the streets. We use our estimates to show that a reduction of 4.7 times the estimated effect in the quarantine period is necessary to reach the capital's long-term air quality goals. To the best of our knowledge, our paper is the first that shows the causal impact of quarantine regulation induced by the COVID-19 pandemic and its implications on air pollution levels in the most prominent Brazilian State, using hourly pollution data across cities with different social distancing laws.
 
