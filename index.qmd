@@ -38,7 +38,7 @@ I am an applied economist working as a Lead Econometrician and Data Scientist at
 
 I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May 2023.
 
-In this website, you will find a repository of valuable resources, including lecture notes, technical handouts, code snippets, and blog posts. These materials delve not only into my academic interests, but also into common themes that I encounter as a data practitioner and enthusiast, such as `R` and `Python` programming, Applied Economics, Econometrics, Statistics, and Data Analytics. For comprehensive access, please visit my [GitHub](https://github.com/lsmacoris) page, which hosts supplementary materials like coding notebooks and sample datasets.
+In this website, you will find a repository of valuable resources, including lecture notes, technical handouts, code snippets, and blog posts. These materials delve not only into my academic interests, but also into common themes that I encounter as a data practitioner and enthusiast, such as `R` and `Python` programming, Applied Economics, Econometrics, Statistics, Data Analytics, Finance, and many more. For comprehensive access, please visit my [GitHub](https://github.com/lsmacoris) page, which hosts supplementary materials like coding notebooks and sample datasets.
 
 
 ::: {.callout-note}
