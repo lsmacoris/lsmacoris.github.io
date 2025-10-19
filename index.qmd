@@ -34,7 +34,7 @@ about:
 **About**
 :::
 
-I am an applied economist working as a Lead Econometrician and Data Scientist at [The Chamberlain Group](https://chamberlaingroup.com/), a [Blackstone](https://www.blackstone.com/) company. I am also affiliated to [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/en) as a lecturer (part-time) and as a visiting professor in the School of Economics and Business at [*Universidad de Navarra*](https://en.unav.edu/web/school-of-economics-and-business).
+I am an applied economist working as a Lead Econometrician and Data Scientist at [The Chamberlain Group](https://chamberlaingroup.com/), a [Blackstone](https://www.blackstone.com/) company. I am also affiliated to [Getulio Vargas Foundation (FGV - EAESP)](https://eaesp.fgv.br/en) as a lecturer (part-time) and as a visiting professor in the School of Economics and Business at [Universidad de Navarra](https://en.unav.edu/web/school-of-economics-and-business).
 
 I received my Ph.D. in Economics from [INSPER](https://www.insper.edu.br/en/) (Institute of Education and Research, Sao Paulo) in May 2023.
 
